@@ -7,11 +7,17 @@
 :root {
   --bg:            #f5f5f5;
   --surface:       #f5f5f5;
-  --ink:           #000000;
-  --ink-soft:      rgba(0, 0, 0, 0.58);
-  --ink-faint:     rgba(0, 0, 0, 0.40);
-  --line:          rgba(0, 0, 0, 0.08);
-  --line-soft:     rgba(0, 0, 0, 0.05);
+  /* Cor principal (substitui o preto): azul escuro da identidade Delazari
+     Cor secundária: dourado. Troque estes 2 valores se tiver o hex exato. */
+  --navy:          #1b2c3a;   /* azul mais escuro — cor principal */
+  --navy-2:        #34495d;   /* azul médio p/ gradientes / brilho */
+  --gold:          #b4915a;   /* dourado — cor secundária */
+
+  --ink:           var(--navy);
+  --ink-soft:      rgba(27, 44, 58, 0.62);
+  --ink-faint:     rgba(27, 44, 58, 0.42);
+  --line:          rgba(27, 44, 58, 0.11);
+  --line-soft:     rgba(27, 44, 58, 0.06);
   --white:         #ffffff;
 
   --radius-btn:    10px;
@@ -84,11 +90,11 @@ em { font-style: italic; }
   will-change: transform;
 }
 .btn--dark {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--white);
   box-shadow: var(--shadow-dark);
 }
-.btn--dark:hover { transform: translateY(-2px); background: #171717; }
+.btn--dark:hover { transform: translateY(-2px); background: #24384a; }
 .btn--soft {
   background: var(--surface);
   color: var(--ink);
@@ -110,7 +116,7 @@ em { font-style: italic; }
 .brand__mark {
   width: 32px; height: 32px;
   border-radius: 9px;
-  background: linear-gradient(150deg, #3a3a3a 0%, #000 75%);
+  background: linear-gradient(150deg, var(--navy-2) 0%, var(--navy) 78%);
   display: grid; place-items: center;
   box-shadow: var(--shadow-dark);
   flex: none;
@@ -183,8 +189,8 @@ em { font-style: italic; }
 }
 .pill__dot {
   width: 7px; height: 7px; border-radius: 50%;
-  background: #16a34a;
-  box-shadow: 0 0 0 3px rgba(22,163,74,.18);
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(180,145,90,.22);
   animation: pulse 2.4s ease-in-out infinite;
 }
 .pill--label { margin-bottom: 22px; }
@@ -216,46 +222,56 @@ em { font-style: italic; }
 }
 .hero__actions { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
-/* ---------- Orb (esfera com ondas concêntricas) ---------- */
+/* ---------- Orb: água com ondas concêntricas + fio de cabelo ---------- */
 .orb {
   position: absolute;
-  top: -12%; left: 50%;
+  top: -14%; left: 50%;
   transform: translateX(-50%);
-  width: min(760px, 120vw);
+  width: min(720px, 116vw);
   aspect-ratio: 1;
   z-index: 1;
   pointer-events: none;
-  opacity: .9;
+  opacity: .95;
 }
-.orb__ripple {
+/* brilho central — a "poça de luz" que dá profundidade */
+.orb__glow {
   position: absolute; inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 44%,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,255,255,0.35) 26%,
+    rgba(255,255,255,0) 58%);
+}
+/* ondas concêntricas em leve perspectiva */
+.orb__ripple {
+  position: absolute; inset: -4% 0 0;
   border-radius: 50%;
   background:
     repeating-radial-gradient(circle at 50% 50%,
-      rgba(0,0,0,0.055) 0px,
-      rgba(0,0,0,0.055) 1px,
-      transparent 1px,
-      transparent 15px);
-  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 0%, #000 40%, transparent 72%);
-          mask-image: radial-gradient(circle at 50% 45%, #000 0%, #000 40%, transparent 72%);
-  animation: ripple 14s linear infinite;
+      rgba(27,44,58,0.070) 0px,
+      rgba(27,44,58,0.070) 1px,
+      rgba(255,255,255,0.35) 2px,
+      transparent 3px,
+      transparent 16px);
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 0%, #000 40%, transparent 72%);
+          mask-image: radial-gradient(circle at 50% 46%, #000 0%, #000 40%, transparent 72%);
+  transform: perspective(900px) rotateX(24deg);
+  animation: ripple 16s linear infinite;
 }
-.orb__sphere {
+/* o fio de cabelo em si */
+.orb__hair {
   position: absolute;
-  top: 22%; left: 50%;
-  width: 46%; aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 38% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.15) 42%, rgba(0,0,0,0.06) 70%, rgba(0,0,0,0.12) 100%);
-  box-shadow:
-    inset 0 -22px 44px rgba(0,0,0,0.10),
-    inset 0 14px 30px rgba(255,255,255,0.85),
-    0 30px 60px rgba(0,0,0,0.10);
-  animation: float 8s ease-in-out infinite;
+  top: 47%; left: 50%;
+  width: 56%; height: auto;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  animation: hairfloat 9s ease-in-out infinite;
 }
-@keyframes ripple { to { transform: scale(1.35); opacity: .35; } }
-@keyframes float { 0%,100%{ transform: translateX(-50%) translateY(0) } 50%{ transform: translateX(-50%) translateY(-14px) } }
+@keyframes ripple { to { transform: perspective(900px) rotateX(24deg) scale(1.3); opacity: .3; } }
+@keyframes hairfloat {
+  0%,100% { transform: translate(-50%, -50%) rotate(0deg); }
+  50%     { transform: translate(-50%, calc(-50% - 12px)) rotate(-1.4deg); }
+}
 
 /* ---------- Marquee ---------- */
 .marquee {
@@ -347,7 +363,7 @@ em { font-style: italic; }
 .card__icon {
   width: 46px; height: 46px;
   border-radius: 13px;
-  background: linear-gradient(150deg, #3a3a3a 0%, #000 78%);
+  background: linear-gradient(150deg, var(--navy-2) 0%, var(--navy) 80%);
   display: grid; place-items: center;
   color: #fff;
   box-shadow: var(--shadow-dark);

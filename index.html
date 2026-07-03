@@ -19,7 +19,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,401&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M16 6l6 10-6 10-6-10z' fill='none' stroke='%23fff' stroke-width='1.6'/%3E%3Cpath d='M16 6l6 10-6 10-6-10z' fill='none' stroke='%23fff' stroke-width='1.6' transform='rotate(45 16 16) scale(0.62)' transform-origin='16 16'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231b2c3a'/%3E%3Cpath d='M16 6l6 10-6 10-6-10z' fill='none' stroke='%23fff' stroke-width='1.6'/%3E%3Cpath d='M16 6l6 10-6 10-6-10z' fill='none' stroke='%23fff' stroke-width='1.6' transform='rotate(45 16 16) scale(0.62)' transform-origin='16 16'/%3E%3C/svg%3E" />
 </head>
 <body>
 
@@ -48,8 +48,31 @@
     <!-- HERO -->
     <section class="hero" id="hero">
       <div class="orb" aria-hidden="true">
+        <div class="orb__glow"></div>
         <div class="orb__ripple"></div>
-        <div class="orb__sphere"></div>
+        <svg class="orb__hair" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hg" x1="140" y1="120" x2="520" y2="560" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#14232f"/>
+              <stop offset="0.28" stop-color="#2c4256"/>
+              <stop offset="0.5" stop-color="#5a7794"/>
+              <stop offset="0.72" stop-color="#2c4256"/>
+              <stop offset="1" stop-color="#14232f"/>
+            </linearGradient>
+            <filter id="hsh" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="9"/>
+            </filter>
+          </defs>
+          <!-- sombra sobre a água (perspectiva/realismo) -->
+          <path d="M196,150 C300,118 326,248 318,332 C310,416 356,476 472,522" stroke="rgba(20,33,45,0.15)" stroke-width="9" stroke-linecap="round" filter="url(#hsh)" transform="translate(15,26)"/>
+          <!-- fios soltos -->
+          <path d="M196,150 C296,128 336,250 330,340 C324,420 360,482 486,524" stroke="#2b3f50" stroke-width="1.6" stroke-linecap="round" opacity="0.42"/>
+          <path d="M196,150 C306,112 316,250 308,326 C300,412 352,470 458,520" stroke="#2b3f50" stroke-width="1.3" stroke-linecap="round" opacity="0.34"/>
+          <!-- fio principal -->
+          <path d="M196,150 C300,118 326,248 318,332 C310,416 356,476 472,522" stroke="url(#hg)" stroke-width="5" stroke-linecap="round"/>
+          <!-- brilho especular -->
+          <path d="M200,150 C303,124 331,250 323,334 C315,414 358,474 468,518" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
       </div>
       <div class="container hero__inner">
         <span class="pill reveal" data-reveal>
@@ -158,7 +181,7 @@
     <section class="section" id="indicacao">
       <div class="container">
         <div class="cta-panel reveal" data-reveal>
-          <div class="orb orb--panel" aria-hidden="true"><div class="orb__ripple"></div><div class="orb__sphere"></div></div>
+          <div class="orb orb--panel" aria-hidden="true"><div class="orb__glow"></div><div class="orb__ripple"></div></div>
           <span class="pill pill--label">Para quem é</span>
           <h2 class="section__title">Você notou a queda, mas não sabe se o seu caso tem indicação cirúrgica.</h2>
           <p>
@@ -204,7 +227,25 @@
 
   <!-- FOOTER -->
   <footer class="footer" id="contato">
-    <div class="orb orb--footer" aria-hidden="true"><div class="orb__ripple"></div><div class="orb__sphere"></div></div>
+    <div class="orb orb--footer" aria-hidden="true">
+      <div class="orb__glow"></div>
+      <div class="orb__ripple"></div>
+      <svg class="orb__hair" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hgf" x1="140" y1="120" x2="520" y2="560" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#14232f"/>
+            <stop offset="0.28" stop-color="#2c4256"/>
+            <stop offset="0.5" stop-color="#5a7794"/>
+            <stop offset="0.72" stop-color="#2c4256"/>
+            <stop offset="1" stop-color="#14232f"/>
+          </linearGradient>
+          <filter id="hshf" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+        </defs>
+        <path d="M196,150 C300,118 326,248 318,332 C310,416 356,476 472,522" stroke="rgba(20,33,45,0.14)" stroke-width="9" stroke-linecap="round" filter="url(#hshf)" transform="translate(15,26)"/>
+        <path d="M196,150 C300,118 326,248 318,332 C310,416 356,476 472,522" stroke="url(#hgf)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M200,150 C303,124 331,250 323,334 C315,414 358,474 468,518" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
     <div class="container footer__inner">
       <a href="#top" class="brand brand--footer reveal" data-reveal aria-label="Dra. Bárbara Delazari">
         <span class="brand__mark" aria-hidden="true">
