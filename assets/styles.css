@@ -223,52 +223,19 @@ em { font-style: italic; }
 /* ---------- Orb: água com ondas concêntricas + fio de cabelo ---------- */
 .orb {
   position: absolute;
-  top: -14%; left: 50%;
+  top: -4%; left: 50%;
   transform: translateX(-50%);
-  width: min(720px, 116vw);
+  width: min(680px, 112vw);
   aspect-ratio: 1;
   z-index: 1;
   pointer-events: none;
   opacity: .95;
 }
-/* brilho central — a "poça de luz" que dá profundidade */
-.orb__glow {
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 44%,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,255,255,0.35) 26%,
-    rgba(255,255,255,0) 58%);
-}
-/* ondas concêntricas em leve perspectiva */
-.orb__ripple {
-  position: absolute; inset: -4% 0 0;
-  border-radius: 50%;
-  background:
-    repeating-radial-gradient(circle at 50% 50%,
-      rgba(27,44,58,0.070) 0px,
-      rgba(27,44,58,0.070) 1px,
-      rgba(255,255,255,0.35) 2px,
-      transparent 3px,
-      transparent 16px);
-  -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 0%, #000 40%, transparent 72%);
-          mask-image: radial-gradient(circle at 50% 46%, #000 0%, #000 40%, transparent 72%);
-  transform: perspective(900px) rotateX(24deg);
-  animation: ripple 16s linear infinite;
-}
-/* o fio de cabelo em si */
-.orb__hair {
-  position: absolute;
-  top: 47%; left: 50%;
-  width: 56%; height: auto;
-  transform: translate(-50%, -50%);
-  overflow: visible;
-  animation: hairfloat 9s ease-in-out infinite;
-}
-@keyframes ripple { to { transform: perspective(900px) rotateX(24deg) scale(1.3); opacity: .3; } }
-@keyframes hairfloat {
-  0%,100% { transform: translate(-50%, -50%) rotate(0deg); }
-  50%     { transform: translate(-50%, calc(-50% - 12px)) rotate(-1.4deg); }
+/* água + raiz capilar glossy (SVG com turbulência/iluminação) */
+.orb__img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 /* ---------- Marquee ---------- */
