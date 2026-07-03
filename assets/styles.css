@@ -245,8 +245,8 @@ em { font-style: italic; }
   position: absolute;
   top: 1%; left: 50%;
   transform: translateX(-50%);
-  width: min(1120px, 122vw);
-  aspect-ratio: 1512 / 662;   /* proporção da foto de referência */
+  width: min(1180px, 124vw);
+  aspect-ratio: 1546 / 672;   /* proporção da foto real */
   z-index: 1;
   pointer-events: none;
   /* 1ª camada = foto real (some sem quebrar se ausente); 2ª = fallback SVG */
