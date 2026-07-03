@@ -45,23 +45,34 @@
 
   <main id="top">
 
+    <!-- filtro de líquido animado (aplicado à cena do hero) -->
+    <svg class="visually-hidden" aria-hidden="true" width="0" height="0">
+      <defs>
+        <filter id="heroLiquid" x="-15%" y="-15%" width="130%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.010 0.016" numOctaves="2" seed="6" result="noise">
+            <animate attributeName="baseFrequency" dur="18s" values="0.010 0.016;0.013 0.012;0.010 0.016" repeatCount="indefinite"/>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
+
     <!-- HERO -->
     <section class="hero" id="hero">
-      <div class="orb" aria-hidden="true">
-        <img class="orb__img" src="assets/orb.svg" alt="" />
-      </div>
+      <!-- cena: foto 3D real (assets/hero-raiz.png) com fallback para orb.svg -->
+      <div class="hero__scene" aria-hidden="true"></div>
       <div class="container hero__inner">
         <span class="pill reveal" data-reveal>
-          <span class="pill__dot"></span>Implante capilar · Ubá, MG
+          <span class="pill__dot"></span>Implante capilar · Ubá e Rio de Janeiro
         </span>
-        <h1 class="hero__title reveal" data-reveal>Implante capilar em Ubá</h1>
+        <h1 class="hero__title reveal" data-reveal>Implante capilar em Ubá e Rio de Janeiro</h1>
         <p class="hero__sub reveal" data-reveal>
-          Cirurgia de implante capilar como especialidade única, não como um serviço a mais.
-          Atendimento presencial em Ubá, Minas Gerais, com a Dra. Bárbara Delazari.
+          Com a Dra. Bárbara Delazari — cirurgia de implante capilar como especialidade única,
+          não como um serviço a mais.
         </p>
         <div class="hero__actions reveal" data-reveal>
           <a href="https://wa.me/5521972348896?text=Ei%20dra.%20Vim%20pelo%20site%2C%20gostaria%20de%20agendar%20a%20consulta%20pr%C3%A9%20cir%C3%BArgica." class="btn btn--dark" target="_blank" rel="noopener">Agendar avaliação</a>
-          <a href="#procedimento" class="btn btn--soft">Entender o procedimento</a>
+          <a href="#procedimento" class="btn btn--soft">Conhecer a técnica</a>
         </div>
       </div>
     </section>
@@ -69,18 +80,18 @@
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span class="chip">Diagnóstico da queda</span>
+        <span class="chip">Técnica FUE</span>
+        <span class="chip">Ubá · Rio de Janeiro</span>
         <span class="chip">Planejamento individual</span>
         <span class="chip">Área doadora</span>
-        <span class="chip">Densidade capilar</span>
+        <span class="chip">Recuperação tranquila</span>
         <span class="chip">Acompanhamento pós-cirúrgico</span>
-        <span class="chip">Anestesia local</span>
-        <span class="chip">Diagnóstico da queda</span>
+        <span class="chip">Técnica FUE</span>
+        <span class="chip">Ubá · Rio de Janeiro</span>
         <span class="chip">Planejamento individual</span>
         <span class="chip">Área doadora</span>
-        <span class="chip">Densidade capilar</span>
+        <span class="chip">Recuperação tranquila</span>
         <span class="chip">Acompanhamento pós-cirúrgico</span>
-        <span class="chip">Anestesia local</span>
       </div>
     </div>
 
@@ -90,8 +101,8 @@
         <span class="pill pill--label reveal" data-reveal>Sobre</span>
         <p class="quote reveal" data-reveal>
           A Dra. Bárbara é médica dedicada <strong>exclusivamente ao implante capilar.</strong>
-          Não é dermatologia geral com implante na lista de serviços. É a especialidade inteira —
-          <strong>do diagnóstico da queda até o acompanhamento pós-cirúrgico.</strong>
+          Não é dermatologia geral com implante capilar na lista de serviços. É a especialidade
+          inteira — <strong>do diagnóstico da queda de cabelo até o acompanhamento pós-cirúrgico.</strong>
         </p>
         <div class="quote__by reveal" data-reveal>
           <span class="brand__mark brand__mark--sm" aria-hidden="true">
@@ -110,10 +121,11 @@
       <div class="container">
         <div class="section__head reveal" data-reveal>
           <span class="pill pill--label">O procedimento</span>
-          <h2 class="section__title">Cada caso de calvície tem uma causa. Genética, hormonal, ou os dois.</h2>
+          <h2 class="section__title">Cada caso de calvície tem uma causa. Genética, hormonal, ou os dois combinados.</h2>
           <p class="section__intro">
-            A avaliação começa entendendo o seu histórico e o padrão da sua queda,
-            antes de qualquer indicação de técnica. O planejamento cirúrgico é individual.
+            <strong>50% do resultado da sua cirurgia depende do pré-cirúrgico.</strong> Por isso a
+            avaliação começa entendendo o seu histórico e o padrão da sua queda, antes de qualquer
+            indicação de técnica. O planejamento é individual.
           </p>
         </div>
 
@@ -150,21 +162,58 @@
             <p>O planejamento é individual e considera sua idade e biotipo. O objetivo é um resultado natural e coerente com você — nunca uma promessa genérica.</p>
           </article>
         </div>
+
+        <!-- Técnica FUE -->
+        <div class="fue reveal" data-reveal>
+          <div class="fue__head">
+            <span class="pill pill--label pill--gold">Técnica FUE</span>
+            <h3 class="fue__title">E é aqui que entra a técnica FUE.</h3>
+          </div>
+          <div class="fue__body">
+            <p>
+              Diferente de técnicas mais antigas, que retiravam uma faixa de couro cabeludo, a FUE
+              extrai os folículos <strong>fio a fio, sem corte linear</strong> — o que significa menos
+              marcas visíveis e uma recuperação mais tranquila.
+            </p>
+            <p>
+              É a <strong>técnica de implante capilar mais utilizada no Brasil</strong>, e por isso
+              também uma das mais estudadas e consolidadas. Pode ser indicada até em casos que você
+              imagina que “não teriam mais solução” — e é justamente isso que a avaliação define.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- PARA QUEM É -->
     <section class="section" id="indicacao">
       <div class="container">
-        <div class="cta-panel reveal" data-reveal>
+        <div class="cta-panel cta-panel--left reveal" data-reveal>
           <div class="orb orb--panel" aria-hidden="true"><img class="orb__img" src="assets/orb.svg" alt="" /></div>
           <span class="pill pill--label">Para quem é</span>
-          <h2 class="section__title">Você notou a queda, mas não sabe se o seu caso tem indicação cirúrgica.</h2>
-          <p>
-            Isso é justamente o que a consulta resolve. Só depois da avaliação clínica é possível
-            dizer se o implante capilar é o caminho certo pra você — ou se outro tratamento faz
-            mais sentido primeiro.
-          </p>
+          <h2 class="section__title">Talvez o implante capilar seja pra você.</h2>
+          <ul class="checklist">
+            <li>
+              <span class="checklist__mark" aria-hidden="true"></span>
+              Você já usou medicamentos, séruns e shampoos — que não preenchem os espaços que os fios já deixaram.
+            </li>
+            <li>
+              <span class="checklist__mark" aria-hidden="true"></span>
+              Você tem uma cicatriz (de acidente ou cirurgia) onde o pelo não nasce mais.
+            </li>
+            <li>
+              <span class="checklist__mark" aria-hidden="true"></span>
+              Você não se sente confortável e confiante sem boné, mas também não se acostuma com os recuos.
+            </li>
+            <li>
+              <span class="checklist__mark" aria-hidden="true"></span>
+              Você se vê mais jovem no espelho quando imagina uma faixa maior de cabelo.
+            </li>
+            <li>
+              <span class="checklist__mark" aria-hidden="true"></span>
+              Você quer uma recuperação tranquila, sem inchaço e sem parar a sua rotina.
+            </li>
+          </ul>
           <a href="https://wa.me/5521972348896?text=Ei%20dra.%20Vim%20pelo%20site%2C%20gostaria%20de%20agendar%20a%20consulta%20pr%C3%A9%20cir%C3%BArgica." class="btn btn--dark" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
       </div>
@@ -181,20 +230,24 @@
 
         <div class="faq">
           <details class="faq__item reveal" data-reveal open>
-            <summary>Existe idade certa para fazer o implante capilar?<span class="faq__chev" aria-hidden="true"></span></summary>
-            <div class="faq__answer"><p>Não. A indicação depende do momento em que a calvície começa a incomodar e da avaliação clínica individual, não de uma faixa etária fixa.</p></div>
+            <summary>Já usei minoxidil, shampoos e séruns e não resolveu. O implante funciona pra mim?<span class="faq__chev" aria-hidden="true"></span></summary>
+            <div class="faq__answer"><p>Esses tratamentos podem ajudar a manter os fios que você ainda tem, mas não preenchem as áreas onde o cabelo já foi perdido. O implante capilar redistribui os seus próprios folículos para essas regiões. Se é o seu caso, é a avaliação que confirma.</p></div>
           </details>
           <details class="faq__item reveal" data-reveal>
-            <summary>O procedimento dói?<span class="faq__chev" aria-hidden="true"></span></summary>
-            <div class="faq__answer"><p>É feito com anestesia local. Boa parte dos pacientes relata desconforto leve, controlado com a medicação prescrita no pós-operatório.</p></div>
+            <summary>Dá pra fazer implante em cima de cicatriz?<span class="faq__chev" aria-hidden="true"></span></summary>
+            <div class="faq__answer"><p>Em muitos casos, sim. A técnica FUE permite implantar fios em regiões de cicatriz — de acidente ou de cirurgia —, respeitando as condições da pele no local. A viabilidade é definida na avaliação individual.</p></div>
           </details>
           <details class="faq__item reveal" data-reveal>
-            <summary>Quanto tempo de recuperação?<span class="faq__chev" aria-hidden="true"></span></summary>
-            <div class="faq__answer"><p>Varia conforme cicatrização e cuidados individuais. A rotina do dia a dia costuma ser retomada em poucos dias, sempre conforme orientação médica no seu caso.</p></div>
+            <summary>A recuperação atrapalha minha rotina? Fico muito inchado?<span class="faq__chev" aria-hidden="true"></span></summary>
+            <div class="faq__answer"><p>A proposta da FUE é uma recuperação tranquila. O inchaço, quando ocorre, costuma ser leve e controlado, e a maioria das pessoas retoma a rotina em poucos dias — sempre conforme a orientação médica no seu caso.</p></div>
           </details>
           <details class="faq__item reveal" data-reveal>
-            <summary>O resultado é definitivo?<span class="faq__chev" aria-hidden="true"></span></summary>
-            <div class="faq__answer"><p>O resultado depende de fatores biológicos individuais, incluindo a evolução da calvície nas áreas não tratadas. Isso é conversado em detalhe na consulta de avaliação.</p></div>
+            <summary>O resultado fica natural? Vão perceber que fiz?<span class="faq__chev" aria-hidden="true"></span></summary>
+            <div class="faq__answer"><p>O planejamento é individual e respeita a sua linha frontal, o ângulo de saída dos fios e a densidade da região — para um resultado natural e coerente com o seu rosto.</p></div>
+          </details>
+          <details class="faq__item reveal" data-reveal>
+            <summary>Em quanto tempo vejo o resultado final?<span class="faq__chev" aria-hidden="true"></span></summary>
+            <div class="faq__answer"><p>Os fios implantados passam por uma fase de queda e depois voltam a crescer. O resultado vai se formando ao longo dos meses e é acompanhado de perto no pós-operatório, conforme a evolução individual.</p></div>
           </details>
         </div>
       </div>
