@@ -424,7 +424,7 @@ em { font-style: italic; }
 .fue {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(24px, 5vw, 56px);
   align-items: center;
   background: linear-gradient(160deg, #22374a 0%, var(--navy) 70%);
@@ -439,9 +439,30 @@ em { font-style: italic; }
   line-height: 1.2; letter-spacing: -0.01em;
   margin-top: 16px;
 }
-.fue__body { display: grid; gap: 16px; }
-.fue__body p { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.82); }
-.fue__body strong { color: #fff; font-weight: 600; }
+.fue__lead {
+  margin-top: 16px;
+  font-size: 16px; line-height: 1.65;
+  color: rgba(255,255,255,0.82);
+}
+.fue__list { list-style: none; display: grid; gap: 15px; }
+.fue__list li {
+  display: flex; align-items: flex-start; gap: 13px;
+  font-size: 15.5px; line-height: 1.5;
+  color: rgba(255,255,255,0.92);
+}
+.fue__mark {
+  flex: none; margin-top: 1px;
+  width: 22px; height: 22px; border-radius: 7px;
+  background: linear-gradient(150deg, #d8b877 0%, var(--gold) 90%);
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.fue__mark::after {
+  content: ""; position: absolute; left: 8px; top: 5px;
+  width: 5px; height: 10px;
+  border: solid var(--navy); border-width: 0 2px 2px 0;
+  transform: rotate(43deg);
+}
 
 /* ---------- FAQ ---------- */
 .faq__layout {
