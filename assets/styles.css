@@ -572,7 +572,7 @@ em { font-style: italic; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav { display: none; }
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex; margin-left: auto; }
   .header__inner.is-open { flex-wrap: wrap; }
   .header__inner.is-open .nav {
     display: flex; flex-direction: column; align-items: stretch;
