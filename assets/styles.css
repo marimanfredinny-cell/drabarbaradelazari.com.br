@@ -247,13 +247,10 @@ em { font-style: italic; }
   transform: translateX(-50%);
   width: min(1180px, 124vw);
   aspect-ratio: 1546 / 672;   /* proporção da foto real */
+  height: auto;
   z-index: 1;
   pointer-events: none;
-  /* 1ª camada = foto real (some sem quebrar se ausente); 2ª = fallback SVG */
-  background-image: url('hero-raiz.png'), url('orb.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center;
-  background-size: contain, contain;
+  object-fit: contain;
   -webkit-mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
           mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
   filter: url(#heroLiquid) brightness(1.16) contrast(0.82);
