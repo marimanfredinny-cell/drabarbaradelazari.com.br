@@ -240,26 +240,24 @@ em { font-style: italic; }
 
 .visually-hidden { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-/* ---------- Cena do hero: foto 3D real (fallback = orb.svg) ---------- */
+/* ---------- Cena do hero: foto 3D real cobrindo a seção inteira ---------- */
 .hero__scene {
   position: absolute;
-  top: 1%; left: 50%;
-  transform: translateX(-50%);
-  width: min(1180px, 124vw);
-  aspect-ratio: 1546 / 672;   /* proporção da foto real */
-  height: auto;
+  inset: 0;
+  width: 100%; height: 100%;
   z-index: 1;
   pointer-events: none;
-  object-fit: contain;
-  -webkit-mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
-          mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
-  filter: url(#heroLiquid) brightness(1.16) contrast(0.82);
-  opacity: 0.42;
-  animation: heroFloat 9s ease-in-out infinite;
+  object-fit: cover;
+  object-position: center 42%;
+  -webkit-mask-image: radial-gradient(115% 125% at 50% 42%, #000 46%, transparent 86%);
+          mask-image: radial-gradient(115% 125% at 50% 42%, #000 46%, transparent 86%);
+  filter: brightness(1.14) contrast(0.85);
+  opacity: 0.45;
+  animation: heroBreath 14s ease-in-out infinite;
 }
-@keyframes heroFloat {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%     { transform: translateX(-50%) translateY(-12px); }
+@keyframes heroBreath {
+  0%,100% { transform: scale(1.02); }
+  50%     { transform: scale(1.06); }
 }
 
 /* ---------- Marquee ---------- */
@@ -622,6 +620,6 @@ em { font-style: italic; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
-  .hero__scene { filter: none; }
+  .hero__scene { transform: scale(1.02); }
 }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }

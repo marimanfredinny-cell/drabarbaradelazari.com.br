@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,401&display=swap" rel="stylesheet" />
 
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="icon" type="image/png" href="logo.png" />
 </head>
@@ -45,22 +46,10 @@
 
   <main id="top">
 
-    <!-- filtro de líquido animado (aplicado à cena do hero) -->
-    <svg class="visually-hidden" aria-hidden="true" width="0" height="0">
-      <defs>
-        <filter id="heroLiquid" x="-15%" y="-15%" width="130%" height="130%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.010 0.016" numOctaves="2" seed="6" result="noise">
-            <animate attributeName="baseFrequency" dur="18s" values="0.010 0.016;0.013 0.012;0.010 0.016" repeatCount="indefinite"/>
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-    </svg>
-
     <!-- HERO -->
     <section class="hero" id="hero">
-      <!-- cena: foto 3D real (assets/hero-raiz.png) -->
-      <img class="hero__scene" src="assets/hero-raiz.png" alt="" aria-hidden="true" />
+      <!-- cena: foto 3D real (fundo da seção) -->
+      <img class="hero__scene" src="assets/hero.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" />
       <div class="container hero__inner">
         <span class="pill reveal" data-reveal>
           <span class="pill__dot"></span>Implante capilar · Ubá e Rio de Janeiro
