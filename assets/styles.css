@@ -1,7 +1,6 @@
 /* =========================================================
    Dra. Bárbara Delazari — Implante Capilar
-   Identidade visual baseada no template "Orb AI" (Framer)
-   Tema claro / soft-UI neumórfico
+   Identidade: paleta + tipografia do brand guide
    ========================================================= */
 
 :root {
@@ -9,17 +8,19 @@
   --surface:       #f5f5f5;
   /* Cor principal (substitui o preto): azul escuro da identidade Delazari
      Cor secundária: dourado. Troque estes 2 valores se tiver o hex exato. */
-  --navy:          #1b2c3a;   /* azul mais escuro — cor principal */
-  --navy-2:        #34495d;   /* azul médio p/ gradientes / brilho */
-  --gold:          #b4915a;   /* dourado — cor secundária */
-  --cream:         #f3ecdf;   /* creme quente — bloco claro */
-  --cream-line:    #e6dcc7;   /* borda no creme */
+  /* Paleta da identidade (brand guide) */
+  --navy:          #1f3a4a;   /* azul escuro — cor principal */
+  --navy-2:        #2f5466;   /* azul médio p/ gradientes / brilho */
+  --gold:          #c6a75e;   /* dourado — cor secundária */
+  --gray:          #bfc5cc;   /* cinza azulado — cor de apoio */
+  --cream:         #e7ebee;   /* banda clara (tom do cinza azulado) */
+  --cream-line:    #d5dbe0;   /* borda na banda clara */
 
   --ink:           var(--navy);
-  --ink-soft:      rgba(27, 44, 58, 0.62);
-  --ink-faint:     rgba(27, 44, 58, 0.42);
-  --line:          rgba(27, 44, 58, 0.11);
-  --line-soft:     rgba(27, 44, 58, 0.06);
+  --ink-soft:      rgba(31, 58, 74, 0.62);
+  --ink-faint:     rgba(31, 58, 74, 0.42);
+  --line:          rgba(31, 58, 74, 0.11);
+  --line-soft:     rgba(31, 58, 74, 0.06);
   --white:         #ffffff;
 
   --radius-btn:    10px;
@@ -42,8 +43,11 @@
     0 1px 2px rgba(0, 0, 0, 0.25),
     0 8px 20px rgba(0, 0, 0, 0.22);
 
-  --font-head: "Satoshi", "Satoshi Placeholder", -apple-system, system-ui, sans-serif;
-  --font-body: "Inter", -apple-system, system-ui, sans-serif;
+  /* Tipografia da identidade: Qwatick (títulos) + Montserrat (corpo).
+     Qwatick precisa do arquivo da fonte (@font-face) — até lá cai no fallback. */
+  --font-head: "Satoshi", "Montserrat", -apple-system, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;  /* h1/h2 serifado */
+  --font-body: "Montserrat", -apple-system, system-ui, sans-serif;
 
   --maxw: 1180px;
   --gutter: clamp(20px, 5vw, 48px);
@@ -213,11 +217,11 @@ em { font-style: italic; }
 }
 .hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 .hero__title {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(36px, 6vw, 66px);
-  line-height: 1.05;
-  letter-spacing: -0.045em;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   margin: 26px auto 0;
   max-width: 18ch;
 }
@@ -270,12 +274,13 @@ em { font-style: italic; }
   50%     { transform: scale(1.06); }
 }
 
-/* ---------- Hero com foto da Dra. ---------- */
+/* ---------- Hero com foto da Dra. (esmaecida sobre o navy) ---------- */
+.hero--photo { background: var(--navy); }
 .hero--photo .hero__scene {
   z-index: 0;
-  opacity: 1;
+  opacity: 0.55;
   object-position: center 20%;
-  filter: none;
+  filter: saturate(0.85) brightness(1.02);
   -webkit-mask-image: none;
           mask-image: none;
   animation: heroBreath 18s ease-in-out infinite;
@@ -284,7 +289,19 @@ em { font-style: italic; }
   position: absolute; inset: 0; z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(20,32,44,0.62) 0%, rgba(20,32,44,0.28) 46%, rgba(20,32,44,0.55) 100%);
+    linear-gradient(180deg, rgba(31,58,74,0.55) 0%, rgba(31,58,74,0.32) 46%, rgba(31,58,74,0.62) 100%);
+}
+.hero__cred {
+  margin-top: 22px;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 10px;
+  font-size: 13.5px; font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.9);
+}
+.hero__cred-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold);
 }
 .hero--photo .hero__inner { position: relative; z-index: 2; }
 .hero--photo .hero__title { color: #fff; }
@@ -312,6 +329,7 @@ em { font-style: italic; }
   .hero--photo .hero__scene { object-position: center 32%; }
   .hero--photo .hero__title { margin-left: 0; margin-right: 0; max-width: 15ch; }
   .hero--photo .hero__sub { margin-left: 0; margin-right: 0; max-width: 40ch; }
+  .hero--photo .hero__cred { justify-content: flex-start; }
   .hero--photo .hero__actions { justify-content: flex-start; }
   .hero--photo .hero__scrim {
     background:
@@ -388,11 +406,11 @@ em { font-style: italic; }
 .section__head--center { margin-inline: auto; text-align: center; }
 .section__head--left { max-width: 420px; }
 .section__title {
-  font-family: var(--font-head);
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-weight: 600;
   font-size: clamp(30px, 4.6vw, 46px);
-  line-height: 1.16;
-  letter-spacing: -0.01em;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
 }
 .section__intro {
   margin-top: 18px;
@@ -446,11 +464,15 @@ em { font-style: italic; }
 .about__text {
   font-family: var(--font-head);
   font-weight: 500;
-  font-size: clamp(21px, 2.6vw, 30px);
-  line-height: 1.36;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.4;
   letter-spacing: -0.01em;
   color: var(--ink-faint);
   margin-top: 6px;
+  width: 100%;
+  max-width: 58ch;
+  text-align: justify;
+  text-align-last: center;
 }
 .about__text strong { color: var(--ink); font-weight: 500; }
 .quote__by {
@@ -665,16 +687,40 @@ em { font-style: italic; }
 .footer .footer__muted, .footer .footer__bottom p { color: rgba(255,255,255,0.62); }
 .footer .footer__disclaimer { color: rgba(255,255,255,0.45); }
 .footer .footer__grid, .footer .footer__bottom { border-top-color: rgba(255,255,255,0.14); }
+.footer__map {
+  margin-top: 36px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.footer__map iframe {
+  width: 100%; height: 300px;
+  border: 0; display: block;
+  filter: grayscale(0.2);
+}
+.footer__map-link {
+  display: block;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.06);
+  color: #fff !important;
+  font-size: 14px; font-weight: 600;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  transition: background .2s ease;
+}
+.footer__map-link:hover { background: rgba(255,255,255,0.12); }
 .footer .btn--dark { background: #fff; color: var(--navy); }
 .footer .btn--dark:hover { background: #f2ece0; }
 .orb--footer { display: none; }
 .footer__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 .brand--footer { margin-bottom: 26px; }
 .footer__title {
-  font-family: var(--font-head);
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-weight: 600;
   font-size: clamp(28px, 4.4vw, 46px);
-  line-height: 1.18; letter-spacing: -0.01em;
+  line-height: 1.2; letter-spacing: -0.005em;
   max-width: 18ch; margin-bottom: 30px;
 }
 .footer__grid {
@@ -749,8 +795,8 @@ em { font-style: italic; }
 @media (max-width: 560px) {
   .header__inner { gap: 10px; padding-left: 14px; }
   .hero { padding-top: 120px; padding-bottom: 40px; }
-  .btn { width: 100%; }
-  .hero__actions { width: 100%; }
+  .btn { width: auto; }
+  .hero__actions { flex-direction: column; align-items: center; }
   .quote__by { flex-direction: row; }
 }
 
