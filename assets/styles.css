@@ -305,6 +305,21 @@ em { font-style: italic; }
 }
 .hero--photo .btn--soft:hover { background: rgba(255,255,255,0.2); }
 
+/* Desktop: foto horizontal (Dra. à direita) + texto à esquerda */
+@media (min-width: 768px) {
+  .hero--photo { text-align: left; }
+  .hero--photo .hero__inner { align-items: flex-start; }
+  .hero--photo .hero__scene { object-position: center 32%; }
+  .hero--photo .hero__title { margin-left: 0; margin-right: 0; max-width: 15ch; }
+  .hero--photo .hero__sub { margin-left: 0; margin-right: 0; max-width: 40ch; }
+  .hero--photo .hero__actions { justify-content: flex-start; }
+  .hero--photo .hero__scrim {
+    background:
+      linear-gradient(90deg, rgba(20,32,44,0.86) 0%, rgba(20,32,44,0.55) 38%, rgba(20,32,44,0.12) 66%, rgba(20,32,44,0) 82%),
+      linear-gradient(180deg, rgba(20,32,44,0.35) 0%, rgba(20,32,44,0.05) 45%, rgba(20,32,44,0.45) 100%);
+  }
+}
+
 /* ---------- Marquee ---------- */
 .marquee {
   overflow: hidden;

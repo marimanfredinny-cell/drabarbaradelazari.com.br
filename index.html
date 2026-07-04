@@ -18,7 +18,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,401&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="image" href="assets/dra.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero-desktop.jpg" media="(min-width: 768px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/dra.jpg" media="(max-width: 767px)" fetchpriority="high" />
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="icon" type="image/png" href="logo.png" />
 </head>
@@ -51,8 +52,11 @@
 
     <!-- HERO -->
     <section class="hero hero--photo" id="hero">
-      <!-- foto da Dra. como fundo da seção -->
-      <img class="hero__scene" src="assets/dra.jpg" alt="Dra. Bárbara Delazari" fetchpriority="high" decoding="async" />
+      <!-- foto da Dra. como fundo da seção (desktop: horizontal · mobile: retrato) -->
+      <picture>
+        <source media="(min-width: 768px)" srcset="assets/hero-desktop.jpg" />
+        <img class="hero__scene" src="assets/dra.jpg" alt="Dra. Bárbara Delazari" fetchpriority="high" decoding="async" />
+      </picture>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container hero__inner">
         <span class="pill reveal" data-reveal>
