@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,401&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/dra.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="icon" type="image/png" href="logo.png" />
 </head>
@@ -50,9 +50,10 @@
   <main id="top">
 
     <!-- HERO -->
-    <section class="hero" id="hero">
-      <!-- cena: foto 3D real (fundo da seção) -->
-      <img class="hero__scene" src="assets/hero.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" />
+    <section class="hero hero--photo" id="hero">
+      <!-- foto da Dra. como fundo da seção -->
+      <img class="hero__scene" src="assets/dra.jpg" alt="Dra. Bárbara Delazari" fetchpriority="high" decoding="async" />
+      <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container hero__inner">
         <span class="pill reveal" data-reveal>
           <span class="pill__dot"></span>Transplante capilar · Ubá e Rio de Janeiro
@@ -88,7 +89,7 @@
     </div>
 
     <!-- O PROCEDIMENTO -->
-    <section class="section" id="procedimento">
+    <section class="section section--cream" id="procedimento">
       <div class="container">
         <div class="section__head section__head--center section__head--boxed reveal" data-reveal>
           <span class="pill pill--label pill--gold">Técnica FUE</span>
@@ -139,7 +140,7 @@
     </section>
 
     <!-- PARA QUEM É -->
-    <section class="section" id="indicacao">
+    <section class="section section--navy" id="indicacao">
       <div class="container">
         <div class="cta-panel reveal" data-reveal>
           <div class="orb orb--panel" aria-hidden="true"><img class="orb__img" src="assets/orb.svg" alt="" /></div>
@@ -173,7 +174,7 @@
     </section>
 
     <!-- SOBRE -->
-    <section class="section section--about" id="sobre">
+    <section class="section section--about section--cream" id="sobre">
       <div class="container about__grid">
         <div class="about__photo reveal" data-reveal>
           <img src="assets/dra.jpg" alt="Dra. Bárbara Delazari" width="1100" height="1650" loading="lazy" />
