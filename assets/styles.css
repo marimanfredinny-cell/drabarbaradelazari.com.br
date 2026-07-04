@@ -46,7 +46,7 @@
   /* Tipografia da identidade: Qwatick (títulos) + Montserrat (corpo).
      Qwatick precisa do arquivo da fonte (@font-face) — até lá cai no fallback. */
   --font-head: "Satoshi", "Montserrat", -apple-system, system-ui, sans-serif;
-  --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;  /* h1/h2 serifado */
+  --font-serif: "DM Serif Display", "Georgia", "Times New Roman", serif;  /* h1/h2 serifado */
   --font-body: "Montserrat", -apple-system, system-ui, sans-serif;
 
   --maxw: 1180px;
@@ -218,7 +218,7 @@ em { font-style: italic; }
 .hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 .hero__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(36px, 5.6vw, 64px);
   line-height: 1.08;
   letter-spacing: -0.01em;
@@ -407,7 +407,7 @@ em { font-style: italic; }
 .section__head--left { max-width: 420px; }
 .section__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(30px, 4.6vw, 46px);
   line-height: 1.18;
   letter-spacing: -0.005em;
@@ -718,7 +718,7 @@ em { font-style: italic; }
 .brand--footer { margin-bottom: 26px; }
 .footer__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(28px, 4.4vw, 46px);
   line-height: 1.2; letter-spacing: -0.005em;
   max-width: 18ch; margin-bottom: 30px;
