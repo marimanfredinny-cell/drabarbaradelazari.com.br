@@ -46,7 +46,7 @@
   /* Tipografia da identidade: Qwatick (títulos) + Montserrat (corpo).
      Qwatick precisa do arquivo da fonte (@font-face) — até lá cai no fallback. */
   --font-head: "Satoshi", "Montserrat", -apple-system, system-ui, sans-serif;
-  --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;  /* h1/h2 serifado */
+  --font-serif: "DM Serif Display", "Georgia", "Times New Roman", serif;  /* h1/h2 serifado */
   --font-body: "Montserrat", -apple-system, system-ui, sans-serif;
 
   --maxw: 1180px;
@@ -218,7 +218,7 @@ em { font-style: italic; }
 .hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 .hero__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(36px, 5.6vw, 64px);
   line-height: 1.08;
   letter-spacing: -0.01em;
@@ -275,7 +275,7 @@ em { font-style: italic; }
 }
 
 /* ---------- Hero com foto da Dra. (esmaecida sobre o navy) ---------- */
-.hero--photo { background: var(--navy); }
+.hero--photo { background: #0a0a0a; }
 .hero--photo .hero__scene {
   z-index: 0;
   opacity: 0.55;
@@ -289,7 +289,7 @@ em { font-style: italic; }
   position: absolute; inset: 0; z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(31,58,74,0.55) 0%, rgba(31,58,74,0.32) 46%, rgba(31,58,74,0.62) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.34) 46%, rgba(0,0,0,0.66) 100%);
 }
 .hero__cred {
   margin-top: 22px;
@@ -333,8 +333,8 @@ em { font-style: italic; }
   .hero--photo .hero__actions { justify-content: flex-start; }
   .hero--photo .hero__scrim {
     background:
-      linear-gradient(90deg, rgba(20,32,44,0.86) 0%, rgba(20,32,44,0.55) 38%, rgba(20,32,44,0.12) 66%, rgba(20,32,44,0) 82%),
-      linear-gradient(180deg, rgba(20,32,44,0.35) 0%, rgba(20,32,44,0.05) 45%, rgba(20,32,44,0.45) 100%);
+      linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.58) 38%, rgba(0,0,0,0.14) 66%, rgba(0,0,0,0) 82%),
+      linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.06) 45%, rgba(0,0,0,0.5) 100%);
   }
 }
 
@@ -407,7 +407,7 @@ em { font-style: italic; }
 .section__head--left { max-width: 420px; }
 .section__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(30px, 4.6vw, 46px);
   line-height: 1.18;
   letter-spacing: -0.005em;
@@ -718,7 +718,7 @@ em { font-style: italic; }
 .brand--footer { margin-bottom: 26px; }
 .footer__title {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(28px, 4.4vw, 46px);
   line-height: 1.2; letter-spacing: -0.005em;
   max-width: 18ch; margin-bottom: 30px;
