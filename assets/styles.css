@@ -254,9 +254,10 @@ em { font-style: italic; }
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: contain, contain;
-  -webkit-mask-image: radial-gradient(125% 120% at 50% 46%, #000 52%, transparent 82%);
-          mask-image: radial-gradient(125% 120% at 50% 46%, #000 52%, transparent 82%);
-  filter: url(#heroLiquid);
+  -webkit-mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
+          mask-image: radial-gradient(78% 92% at 50% 45%, #000 22%, transparent 68%);
+  filter: url(#heroLiquid) brightness(1.16) contrast(0.82);
+  opacity: 0.42;
   animation: heroFloat 9s ease-in-out infinite;
 }
 @keyframes heroFloat {
