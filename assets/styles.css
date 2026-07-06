@@ -446,14 +446,18 @@ em { font-style: italic; }
 }
 .section--cream .fue-intro { background: #fff; border-color: var(--cream-line); }
 .fue-intro__media {
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
-  background: #0a0a0a;
+  aspect-ratio: 4 / 5;
+  background: #0a0a0a center / cover no-repeat;
   box-shadow: var(--shadow-soft);
 }
-.fue-intro__media img {
+.fue-intro__media img,
+.fue-intro__media iframe {
+  position: absolute; inset: 0;
   width: 100%; height: 100%;
-  aspect-ratio: 4 / 5;
+  border: 0;
   object-fit: cover;
   object-position: center;
   display: block;
