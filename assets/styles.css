@@ -434,8 +434,8 @@ em { font-style: italic; }
 /* Intro da técnica FUE: imagem + texto lado a lado */
 .fue-intro {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: 330px 1fr;
+  gap: clamp(24px, 4vw, 56px);
   align-items: center;
   background: var(--surface);
   border: 1px solid var(--line-soft);
@@ -449,7 +449,9 @@ em { font-style: italic; }
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 573 / 1000;   /* vídeo vertical (~9:16) */
+  width: 100%; max-width: 330px;
+  margin-inline: auto;
   background: #0a0a0a center / cover no-repeat;
   box-shadow: var(--shadow-soft);
 }
@@ -866,8 +868,8 @@ em { font-style: italic; }
   .section { padding: 44px 0; }
   .section__head { margin-bottom: 28px; }
   .cards { gap: 14px; }
-  .fue-intro { grid-template-columns: 1fr; gap: 18px; }
-  .fue-intro__media img { aspect-ratio: 16 / 11; }
+  .fue-intro { grid-template-columns: 1fr; gap: 20px; justify-items: center; }
+  .fue-intro__media { max-width: 280px; }
   .fue-intro__text { text-align: center; }
   .pq-grid { grid-template-columns: 1fr; gap: 14px; }
   .footer { padding-top: 56px; }
