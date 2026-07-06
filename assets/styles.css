@@ -606,6 +606,41 @@ em { font-style: italic; }
   transform: rotate(43deg);
 }
 
+/* Grade de quadros "Para quem é" (imagem + legenda) */
+.pq-grid {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 8px 0 34px;
+  text-align: left;
+}
+.pq-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+}
+.pq-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.3); }
+.pq-card__media {
+  aspect-ratio: 16 / 11;
+  background: #14232e center / cover no-repeat;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pq-card__body { padding: 22px 22px 24px; }
+.pq-card__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 21px; line-height: 1.2;
+  color: #fff; margin-bottom: 10px;
+}
+.pq-card__desc {
+  font-size: 14.5px; line-height: 1.6;
+  color: rgba(255,255,255,0.76);
+}
+
 /* Técnica FUE */
 .fue {
   margin-top: 22px;
@@ -804,6 +839,7 @@ em { font-style: italic; }
 
   .cards { grid-template-columns: 1fr; }
   .card { grid-column: 1 / -1; }
+  .pq-grid { grid-template-columns: repeat(2, 1fr); }
   .about__grid { grid-template-columns: 1fr; gap: 28px; }
   .about__photo { max-width: 380px; }
   .fue { grid-template-columns: 1fr; gap: 20px; }
@@ -821,6 +857,7 @@ em { font-style: italic; }
   .fue-intro { grid-template-columns: 1fr; gap: 18px; }
   .fue-intro__media img { aspect-ratio: 16 / 11; }
   .fue-intro__text { text-align: center; }
+  .pq-grid { grid-template-columns: 1fr; gap: 14px; }
   .footer { padding-top: 56px; }
   .footer__grid { margin-top: 44px; padding-top: 32px; }
   .footer__bottom { margin-top: 36px; }
