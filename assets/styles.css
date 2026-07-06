@@ -638,7 +638,7 @@ em { font-style: italic; }
 }
 .pq-card__desc {
   font-size: 14.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.76);
+  color: rgba(255,255,255,0.85);
 }
 
 /* Técnica FUE */
@@ -828,7 +828,12 @@ em { font-style: italic; }
 @media (max-width: 900px) {
   .nav { display: none; }
   .nav-toggle { display: flex; margin-left: auto; }
-  .header__inner.is-open { flex-wrap: wrap; }
+  .header__inner.is-open {
+    flex-wrap: wrap;
+    border-radius: 22px;
+    background: rgba(245, 245, 245, 0.97);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.16);
+  }
   .header__inner.is-open .nav {
     display: flex; flex-direction: column; align-items: stretch;
     width: 100%; order: 3; margin: 6px 0 4px; gap: 2px;
