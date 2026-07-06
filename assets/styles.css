@@ -331,10 +331,11 @@ em { font-style: italic; }
   .hero--photo .hero__sub { margin-left: 0; margin-right: 0; max-width: 40ch; }
   .hero--photo .hero__cred { justify-content: flex-start; }
   .hero--photo .hero__actions { justify-content: flex-start; }
+  /* desktop: foto sem esmaecido — só um leve gradiente atrás do texto à esquerda */
+  .hero--photo .hero__scene { opacity: 1; filter: none; }
   .hero--photo .hero__scrim {
     background:
-      linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.58) 38%, rgba(0,0,0,0.14) 66%, rgba(0,0,0,0) 82%),
-      linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.06) 45%, rgba(0,0,0,0.5) 100%);
+      linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 32%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 68%);
   }
 }
 
@@ -429,6 +430,36 @@ em { font-style: italic; }
   padding: clamp(28px, 4vw, 48px) clamp(24px, 5vw, 64px);
 }
 .section__head--boxed .section__intro { margin-top: 16px; }
+
+/* Intro da técnica FUE: imagem + texto lado a lado */
+.fue-intro {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: clamp(20px, 3vw, 32px);
+  margin-bottom: 20px;
+}
+.section--cream .fue-intro { background: #fff; border-color: var(--cream-line); }
+.fue-intro__media {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: var(--shadow-soft);
+}
+.fue-intro__media img {
+  width: 100%; height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.fue-intro__text { text-align: left; }
+.fue-intro__text .section__intro { margin-top: 16px; max-width: none; }
 
 /* ---------- Sobre (foto + texto), centralizado em caixa ---------- */
 .about__grid {
@@ -787,6 +818,9 @@ em { font-style: italic; }
   .section { padding: 44px 0; }
   .section__head { margin-bottom: 28px; }
   .cards { gap: 14px; }
+  .fue-intro { grid-template-columns: 1fr; gap: 18px; }
+  .fue-intro__media img { aspect-ratio: 16 / 11; }
+  .fue-intro__text { text-align: center; }
   .footer { padding-top: 56px; }
   .footer__grid { margin-top: 44px; padding-top: 32px; }
   .footer__bottom { margin-top: 36px; }
