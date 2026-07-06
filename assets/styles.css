@@ -616,7 +616,7 @@ em { font-style: italic; }
   text-align: left;
 }
 .pq-card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.22);
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 18px;
   overflow: hidden;
@@ -637,9 +637,12 @@ em { font-style: italic; }
   color: #fff; margin-bottom: 10px;
 }
 .pq-card__desc {
-  font-size: 14.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.85);
+  font-size: 15px; line-height: 1.6;
+  color: rgba(255,255,255,0.9);
 }
+/* vence a regra generica .section--navy p */
+.section--navy .pq-card__desc { color: rgba(255,255,255,0.9); }
+.section--navy .pq-card__title { color: #fff; }
 
 /* Técnica FUE */
 .fue {
