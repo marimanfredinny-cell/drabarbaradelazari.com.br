@@ -322,20 +322,20 @@ em { font-style: italic; }
 }
 .hero--photo .btn--soft:hover { background: rgba(255,255,255,0.2); }
 
-/* Desktop: foto horizontal (Dra. à direita) + texto à esquerda */
+/* Desktop: foto (Dra. à esquerda) + texto à direita */
 @media (min-width: 768px) {
-  .hero--photo { text-align: left; }
-  .hero--photo .hero__inner { align-items: flex-start; }
+  .hero--photo { text-align: right; }
+  .hero--photo .hero__inner { align-items: flex-end; }
   .hero--photo .hero__scene { object-position: center 32%; }
-  .hero--photo .hero__title { margin-left: 0; margin-right: 0; max-width: 15ch; }
-  .hero--photo .hero__sub { margin-left: 0; margin-right: 0; max-width: 40ch; }
-  .hero--photo .hero__cred { justify-content: flex-start; }
-  .hero--photo .hero__actions { justify-content: flex-start; }
-  /* desktop: foto sem esmaecido — só um leve gradiente atrás do texto à esquerda */
+  .hero--photo .hero__title { margin-left: auto; margin-right: 0; max-width: 15ch; }
+  .hero--photo .hero__sub { margin-left: auto; margin-right: 0; max-width: 40ch; }
+  .hero--photo .hero__cred { justify-content: flex-end; }
+  .hero--photo .hero__actions { justify-content: flex-end; }
+  /* desktop: foto sem esmaecido — só um leve gradiente atrás do texto à direita */
   .hero--photo .hero__scene { opacity: 1; filter: none; }
   .hero--photo .hero__scrim {
     background:
-      linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 32%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 68%);
+      linear-gradient(270deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 32%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0) 68%);
   }
 }
 
